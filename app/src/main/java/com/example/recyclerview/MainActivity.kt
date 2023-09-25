@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.adapters.RecyclerViewAdapter
 import com.example.recyclerview.databinding.ActivityMainBinding
 import com.example.recyclerview.recyclerViewHelpers.GridLayoutManager
-
-
+import com.example.recyclerview.recyclerViewHelpers.SnapHelper
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -26,5 +25,8 @@ class MainActivity : AppCompatActivity() {
         val manager = GridLayoutManager(this, LinearLayoutManager.HORIZONTAL, 2, 5, false)
         binding.recyclerView.layoutManager = manager
         binding.recyclerView.adapter = adapter
+
+        val snapHelper = SnapHelper(manager)
+        snapHelper.attachToRecyclerView(binding.recyclerView)
     }
 }
